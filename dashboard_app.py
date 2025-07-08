@@ -109,6 +109,7 @@ def run_process_in_background(shared_state, lock):
                         scaler = joblib.load(rf"models/{window_tag}_{char}_scaler.pkl")    #파일 경로 수정 확인@@
                         model = joblib.load(rf"models/{window_tag}_{char}_ee_model.pkl")   #파일 경로 수정 확인@@
                         X_live = scaler.transform(extracted_df.values)
+                        X_live = X_live.fillna(0)
                         shared_state[f'{char}_state'] = 'abnormal' if model.predict(X_live) == -1 else 'normal'
                 window_tag += 1
 
