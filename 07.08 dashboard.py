@@ -37,7 +37,7 @@ def load_sensor_data():
     data = {}
     for sensor_name in sensor_name_list:
         try:
-            data[f"{sensor_name}_df"] = pd.read_csv(rf"C:\Users\kkd02\OneDrive\문서\데이터 분석\최종 프로젝트\data6\{sensor_name}_artificial.csv")
+            data[f"{sensor_name}_df"] = pd.read_csv(rf"data6\{sensor_name}_artificial.csv")
         except FileNotFoundError:
             data[f"{sensor_name}_df"] = pd.DataFrame([0] * 6000)
     return data
@@ -100,8 +100,8 @@ def run_process_in_background(shared_state, lock):
                 
                 with lock:
                     for char in character_list:
-                        scaler = joblib.load(rf"C:\Users\kkd02\OneDrive\문서\데이터 분석\최종 프로젝트\모델 정리/{window_tag}_{char}_scaler.pkl")
-                        model = joblib.load(rf"C:\Users\kkd02\OneDrive\문서\데이터 분석\최종 프로젝트\모델 정리/{window_tag}_{char}_ee_model.pkl")
+                        scaler = joblib.load(rf"models/{window_tag}_{char}_scaler.pkl")
+                        model = joblib.load(rf"models/{window_tag}_{char}_ee_model.pkl")
                         X_live = scaler.transform(extracted_df.values)
                         shared_state[f'{char}_state'] = 'abnormal' if model.predict(X_live) == -1 else 'normal'
                 window_tag += 1
@@ -113,8 +113,8 @@ def run_process_in_background(shared_state, lock):
                 
                 with lock:
                     for char in last_character_list:
-                        scaler = joblib.load(rf"C:\Users\kkd02\OneDrive\문서\데이터 분석\최종 프로젝트\모델 정리\{char}_scaler.pkl")
-                        model = joblib.load(rf"C:\Users\kkd02\OneDrive\문서\데이터 분석\최종 프로젝트\모델 정리\{char}_model.pkl")
+                        scaler = joblib.load(rf"models\{char}_scaler.pkl")
+                        model = joblib.load(rf"models\{char}_model.pkl")
                         X_total = scaler.transform(concated_df.values)
                         prediction = model.predict(X_total)
                         
