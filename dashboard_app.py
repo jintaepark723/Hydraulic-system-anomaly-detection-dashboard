@@ -10,6 +10,9 @@ from google import genai
 from google.genai import types
 import threading
 from datetime import datetime
+import matplotlib as mpl
+
+mpl.rcParams['font.family'] = 'NanumGothic'
 
 # ------------------- 초기 설정 -------------------
 st.set_page_config(
