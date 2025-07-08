@@ -14,8 +14,8 @@ feature_list = ['mean', 'std', 'min', 'max', 'rms', 'p2p','slope', 'skew', 'kurt
 
 def slope_numpy_gradient(df):
     """numpy gradient 사용 (가장 빠름)"""
-    # gradient는 각 점에서의 기울기를 계산
-    # 전체 구간의 평균 기울기 근사값
+    if df.shape[1] < 2:
+         return [0.0] * df.shape[0]
     gradients = np.gradient(df.values, axis=1)
     slopes = gradients.mean(axis=1)
     return slopes.tolist()
