@@ -13,12 +13,7 @@ from datetime import datetime
 import matplotlib.font_manager as fm
 import matplotlib as mpl
 
-# 나눔고딕 폰트 경로 지정
-font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
-font_prop = fm.FontProperties(fname=font_path)
-
-# 폰트 설정
-mpl.rcParams['font.family'] = font_prop.get_name()
+mpl.rc('font', family='DejaVu Sans')  # 폰트 설정
 mpl.rcParams['axes.unicode_minus'] = False  # 마이너스 깨짐 방지
 
 # ------------------- 초기 설정 -------------------
