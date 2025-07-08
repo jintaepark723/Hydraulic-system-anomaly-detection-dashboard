@@ -24,12 +24,12 @@ sensor_length_dict = {'CE': 60, 'CP': 60, 'EPS1': 6000, 'FS1': 600, 'FS2': 600, 
 character_list = ['cooler', 'pump', 'accumulator']
 last_character_list = ['cooler', 'valve', 'pump', 'accumulator']
 SENSOR_GROUPS = {
-    "압력 센서 (PS1-PS6)": ['PS1', 'PS2', 'PS3', 'PS4', 'PS5', 'PS6'], 
-    "온도 센서 (TS1-TS4)": ['TS1', 'TS2', 'TS3', 'TS4'],
-    "유량 센서": ['FS1', 'FS2'], 
-    "진동 센서": ['VS1'], 
-    "전력 센서": ['EPS1'], 
-    "효율 센서": ['CE', 'CP', 'SE']
+    "Pressure sensor (PS1-PS6)": ['PS1', 'PS2', 'PS3', 'PS4', 'PS5', 'PS6'], 
+    "Temperature sensor (TS1-TS4)": ['TS1', 'TS2', 'TS3', 'TS4'],
+    "Flow sensor": ['FS1', 'FS2'], 
+    "Vibration sensor": ['VS1'], 
+    "Power sensor": ['EPS1'], 
+    "Efficiency sensor": ['CE', 'CP', 'SE']
 }
 
 # --- 데이터 로딩 ---
