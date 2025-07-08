@@ -12,7 +12,9 @@ import threading
 from datetime import datetime
 import matplotlib as mpl
 
-mpl.rcParams['font.family'] = 'NanumGothic'
+mpl.rc('font', family='NanumGothic')
+# 한글 깨짐 방지 옵션
+mpl.rcParams['axes.unicode_minus'] = False
 
 # ------------------- 초기 설정 -------------------
 st.set_page_config(
