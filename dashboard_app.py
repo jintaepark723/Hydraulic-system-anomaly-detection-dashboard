@@ -10,11 +10,16 @@ from google import genai
 from google.genai import types
 import threading
 from datetime import datetime
+import matplotlib.font_manager as fm
 import matplotlib as mpl
 
-mpl.rc('font', family='NanumGothic')
-# 한글 깨짐 방지 옵션
-mpl.rcParams['axes.unicode_minus'] = False
+# 나눔고딕 폰트 경로 지정
+font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+font_prop = fm.FontProperties(fname=font_path)
+
+# 폰트 설정
+mpl.rcParams['font.family'] = font_prop.get_name()
+mpl.rcParams['axes.unicode_minus'] = False  # 마이너스 깨짐 방지
 
 # ------------------- 초기 설정 -------------------
 st.set_page_config(
