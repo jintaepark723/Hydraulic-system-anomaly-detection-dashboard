@@ -450,7 +450,7 @@ elif st.session_state.current_tab == "sensors":
             sensor_data_copy = st.session_state.shared_state["sensor_data"].copy()
         
         fig, axs = plt.subplots(3, 2, figsize=(15, 10))
-        title = f"Real-time sensor data (Row: {current_row}, Time: {current_time}s)" if (is_running or current_time > 0) else "실시간 센서 데이터 (대기 중)"
+        title = f"Real-time sensor data (Row: {current_row}, Time: {current_time}s)" if (is_running or current_time > 0) else "Real-time sensor data (Waiting)"
         fig.suptitle(title, fontsize=16)
         
         for ax, (group_name, sensors_in_group) in zip(axs.flat, SENSOR_GROUPS.items()):
